@@ -1,0 +1,185 @@
+<head>
+<title>Hospital Management Tool Login</title>
+<link rel="stylesheet" href="resources/css/styles.css" />
+<script src="resources/js/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(".search-table").hide();
+
+	$("#employees").click(function() {
+		$(".tab-header li").each(function() {
+			$(this).removeClass("active");
+		});
+		$(this).addClass("active");
+		$(".tab-container > div").hide();
+		$(".tab-container .employees").show();
+	});
+	$("#information-systems").click(function() {
+		$(".tab-header li").each(function() {
+			$(this).removeClass("active");
+		});
+		$(this).addClass("active");
+		$(".tab-container > div").hide();
+		$(".tab-container .information-systems").show();
+	});
+	$("#computers").click(function() {
+		$(".tab-header li").each(function() {
+			$(this).removeClass("active");
+		});
+		$(this).addClass("active");
+		$(".tab-container > div").hide();
+		$(".tab-container .computers").show();
+	});
+	$("#policies").click(function() {
+		$(".tab-header li").each(function() {
+			$(this).removeClass("active");
+		});
+		$(this).addClass("active");
+		$(".tab-container > div").hide();
+		$(".tab-container .policies").show();
+	});
+});
+function employeeSearchResults() {
+	$(".search-table").show();
+}
+
+function removeEmployee(selected) {
+	$(selected).parent().parent().remove();
+}
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="header" ng-controller="hsmLoginCntrl">
+			<div class="header-left"><a href="#"><img src="resources/images/logo.png" alt="Logo" title="Logo" /></a></div>
+			<div class="header-right"><a href="javascript:;"onclick="location.href='login.html'">Logout</a></div>
+		</div>
+		<div class="main-container">
+			<div class="tab-header">
+				<li id="employees" class="active">Employees</li>
+				<li id="information-systems">Information Systems</li>
+				<li id="computers">Computers</li>
+				<li id="policies">Policies</li>
+			</div>
+			<div class="tab-container">
+				<div class="employees">
+					<div class="employee-search">
+						<div class="search-col">
+							<label>Employee ID:</label>
+							<input type="text" placeholder="Enter Employee ID">
+						</div>
+						<div class="search-col">
+							<label>First Name:</label>
+							<input type="text" placeholder="Enter First Name">
+						</div>
+						<div class="search-col">
+							<label>Last Name:</label>
+							<input type="text" placeholder="Enter Last Name">
+						</div>
+						<div class="search-col">
+							<label>&nbsp;</label>
+							<input type="button" value="Search" onclick="employeeSearchResults();">
+							<span><a href="javascript:;" onclick="location.href='add-employee.html'">Add Employee</a></span>
+						</div>
+					</div>
+					
+					<div class="search-table">
+						<table id="employee-search-list">
+							<thead>
+								<th>S.No</th>
+								<th>Employee ID</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Title</th>
+								<th>Location</th>
+								<th>Active</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td><a href="javascript:;" onclick="location.href='employee-datas.html'">45632117613</a></td>
+									<td>John</td>
+									<td>Peter</td>
+									<td>Junior Assistant</td>
+									<td>California</td>
+									<td>Yes</td>
+									<td><a href="javascript:;" onclick="location.href='edit-employee.html'">Edit</a></td>
+									<td><a href="javascript:;" onclick="removeEmployee(this);">Delete</a></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><a href="javascript:;" onclick="location.href='employee-datas.html'">6531456512</a></td>
+									<td>Mohamed</td>
+									<td>Khan</td>
+									<td>Senior Assistant</td>
+									<td>Chicago</td>
+									<td>Yes</td>
+									<td><a href="javascript:;" onclick="location.href='edit-employee.html'">Edit</a></td>
+									<td><a href="javascript:;" onclick="removeEmployee(this);">Delete</a></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><a href="javascript:;" onclick="location.href='employee-datas.html'">18964131452</a></td>
+									<td>George</td>
+									<td>Williams</td>
+									<td>Assistant</td>
+									<td>Washington</td>
+									<td>No</td>
+									<td><a href="javascript:;" onclick="location.href='edit-employee.html'">Edit</a></td>
+									<td><a href="javascript:;" onclick="removeEmployee(this);">Delete</a></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><a href="javascript:;" onclick="location.href='employee-datas.html'">89657456123</a></td>
+									<td>Scott</td>
+									<td>Green</td>
+									<td>Senior Assistant</td>
+									<td>Mason</td>
+									<td>Yes</td>
+									<td><a href="javascript:;" onclick="location.href='edit-employee.html'">Edit</a></td>
+									<td><a href="javascript:;" onclick="removeEmployee(this);">Delete</a></td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><a href="javascript:;" onclick="location.href='employee-datas.html'">4578523163</a></td>
+									<td>Roberts</td>
+									<td>Turner</td>
+									<td>Junior Assistant</td>
+									<td>California</td>
+									<td>Yes</td>
+									<td><a href="javascript:;" onclick="location.href='edit-employee.html'">Edit</a></td>
+									<td><a href="javascript:;" onclick="removeEmployee(this);">Delete</a></td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td><a href="javascript:;" onclick="location.href='employee-datas.html'">96324561321</a></td>
+									<td>Mitchell</td>
+									<td>Adams</td>
+									<td>Senior Assistant</td>
+									<td>Mason</td>
+									<td>No</td>
+									<td><a href="javascript:;" onclick="location.href='edit-employee.html'">Edit</a></td>
+									<td><a href="javascript:;" onclick="removeEmployee(this);">Delete</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="information-systems">
+					<p>Information Systems Details</p>
+				</div>
+				<div class="computers">
+					<p>Computers Details</p>
+				</div>
+				<div class="policies">
+					<p>Policies Details</p>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			Copyright &copy; 2016 Hospital Management Tool. All rights reserved
+		</div>
+	</div>
+</body>

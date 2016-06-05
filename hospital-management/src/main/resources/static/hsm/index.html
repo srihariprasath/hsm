@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Management Tool</title>
+<link rel="stylesheet" href="resources/css/styles.css" />
+<script src="resources/js/jquery-1.9.1.min.js"></script>
+	<script src="resources/js/angular.js"></script>
+	<script src="resources/js/angular-ui-router.min.js"></script>
+	<script src="resources/js/common-scripts.js"></script>
+<script type="text/javascript" src="resources/js/controllers/utils/mainController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/login/loginController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/employee/employeeSearchController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/employee/employeeAddController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/employee/employeeViewController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/infosystem/infoAddController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/infosystem/infoSearchController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/infosystem/infoViewController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/assets/assetSearchController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/assets/assetAddController.js"></script>
+<script type="text/javascript" src="resources/js/controllers/assets/assetViewController.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+	<div class="container">
+		<div ui-view="header"></div>
+		<div ui-view="content"></div>
+		<div ui-view="footer"></div>
+	</div>    
+</body>
+</html>	

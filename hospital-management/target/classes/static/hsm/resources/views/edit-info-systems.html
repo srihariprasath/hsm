@@ -1,0 +1,55 @@
+<div class="main-container">
+	<div class="tab-header">
+		<ul>
+			<li id="employees"><a href="#/employeeDetails" ui-sref="employeeDetails"><span class="icon">&nbsp;</span><span class="tab_name">Employees</span></a></li>
+			<li id="information-systems" class="active"><a href="#/infoSystems" ui-sref="infoSystems"><span class="icon">&nbsp;</span><span class="tab_name">Information Systems</span></a></li>
+			<li id="computers"><a href="#/computers" ui-sref="computers"><span class="icon">&nbsp;</span><span class="tab_name">Computers</span></a></li>
+			<li id="policies"><a href="#/policies" ui-sref="policies"><span class="icon">&nbsp;</span><span class="tab_name">Policies</span></a></li>
+		</ul>
+	</div>
+	<div class="tab-container" ng-controller="hsmInfoViewCntrl">
+		<div class="information-systems">
+			<div class="add-employee-section">
+				<form name="editInfoSystems" ng-submit="editInfosystem()">
+					<div class="two-col">
+						<div class="left">
+							<div class="row" ng-class="{true: 'error'}[submitted && editInfoSystems.empId.$invalid]">
+								<label>Emp ID: </label>
+								<input type="text" readonly="true" name="empId" ng-model="editinfoDetails.empId" placeholder="Enter Emp ID" required />
+								<span class="validation-message" ng-show="submitted && editInfoSystems.empId.$error.required"><label>&nbsp;</label>Enter valid Emp ID.</span>
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && editInfoSystems.sysName.$invalid]">
+								<label>System Name: </label>
+								<input type="text" name="sysName" ng-model="editinfoDetails.sysName" placeholder="Enter System Name" required />
+								<span class="validation-message" ng-show="submitted && editInfoSystems.sysName.$error.required"><label>&nbsp;</label>Enter valid System Name.</span>
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && editInfoSystems.administrator.$invalid]">
+								<label>Administrator: </label>
+								<select ng-model="editinfoDetails.administrator" name="administrator" required>
+									<option>None</option>
+									<option>Yes</option>
+									<option>No</option>
+								</select>
+								<span class="validation-message" ng-show="submitted && editInfoSystems.administrator.$error.required"><label>&nbsp;</label>Select any option.</span>
+							</div>
+						</div>
+						<div class="right">
+							<div class="row">
+								<label>Purpose: </label><input type="text" ng-model="editinfoDetails.purposeDet" placeholder="Enter Purpose Details" />
+							</div>
+							<div class="row">
+								<label>Backup Administrator: </label>
+								<input type="text" ng-model="editinfoDetails.backupAdministrator" placeholder="Backup Administrator" />
+							</div>
+							<div class="row">
+								<label>&nbsp;</label>
+								<input type="submit" value="Save" ng-click="submitted=true"/>
+							</div>
+						</div>
+						<div id="empSearchError" class="row validation-message" ng-show="showInfoEditError">Information System Edit Failed.</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

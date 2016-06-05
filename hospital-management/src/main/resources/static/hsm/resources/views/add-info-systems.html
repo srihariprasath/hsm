@@ -1,0 +1,56 @@
+<div class="main-container">
+	<div class="tab-header">
+		<ul>
+			<li id="employees"><a href="#/employeeDetails" ui-sref="employeeDetails"><span class="icon">&nbsp;</span><span class="tab_name">Employees</span></a></li>
+			<li id="information-systems" class="active"><a href="#/infoSystems" ui-sref="infoSystems"><span class="icon">&nbsp;</span><span class="tab_name">Information Systems</span></a></li>
+			<li id="computers"><a href="#/computers" ui-sref="computers"><span class="icon">&nbsp;</span><span class="tab_name">Computers</span></a></li>
+			<li id="policies"><a href="#/policies" ui-sref="policies"><span class="icon">&nbsp;</span><span class="tab_name">Policies</span></a></li>
+		</ul>
+	</div>
+	<div class="tab-container" ng-controller="hsmInfoAddController">
+		<div class="information-systems">
+			<div class="add-employee-section">
+				<form name="addInfoSystems" ng-submit="addInfoApp()">
+					<div class="two-col">
+						<div class="left">
+							<div class="row" ng-class="{true: 'error'}[submitted && addInfoSystems.empId.$invalid]">
+								<label>Emp ID: </label>
+								<input type="text" name="empId" ng-model="empId" placeholder="Enter Emp ID" required />
+								<span class="validation-message" ng-show="submitted && addInfoSystems.empId.$error.required"><label>&nbsp;</label>Enter valid Emp ID.</span>
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && addInfoSystems.sysName.$invalid]">
+								<label>System Name: </label>
+								<input type="text" name="sysName" ng-model="sysName" placeholder="Enter System Name" required />
+								<span class="validation-message" ng-show="submitted && addInfoSystems.sysName.$error.required"><label>&nbsp;</label>Enter valid System Name.</span>
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && addInfoSystems.administrator.$invalid]">
+								<label>Administrator: </label>
+								<select name="administrator" ng-model="administrator" required>
+									<option>None</option>
+									<option>Yes</option>
+									<option>No</option>
+								</select>
+								<span class="validation-message" ng-show="submitted && addInfoSystems.administrator.$error.required"><label>&nbsp;</label>Select any option.</span>
+							</div>
+						</div>
+						<div class="right">
+							<div class="row">
+								<label>Purpose: </label><input type="text" ng-model="purposeDet" placeholder="Enter Purpose Details" />
+							</div>
+							<div class="row">
+								<label>Backup Administrator: </label>
+								<input type="text" ng-model="backupAdministrator" placeholder="Backup Administrator" />
+							</div>
+							<div class="row">
+								<label>&nbsp;</label>
+								<input type="submit" value="Save" ng-click="submitted=true"/>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div id="empSearchError" class="row validation-message" ng-show="addInfoErrorFlag">Add Failed.Check whether the EMPID specified exist.
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

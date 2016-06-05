@@ -1,0 +1,61 @@
+<div class="main-container">
+	<div class="tab-header">
+		<ul>
+			<li id="employees" class="active"><a href="#/employeeDetails" ui-sref="employeeDetails"><span class="icon">&nbsp;</span><span class="tab_name">Employees</span></a></li>
+			<li id="information-systems"><a href="#/infoSystems" ui-sref="infoSystems"><span class="icon">&nbsp;</span><span class="tab_name">Information Systems</span></a></li>
+			<li id="computers"><a href="#/computers" ui-sref="computers"><span class="icon">&nbsp;</span><span class="tab_name">Computers</span></a></li>
+			<li id="policies"><a href="#/policies" ui-sref="policies"><span class="icon">&nbsp;</span><span class="tab_name">Policies</span></a></li>
+		</ul>
+	</div>
+	<div class="tab-container" ng-controller="hsmEmpViewCntrl">
+		<div class="employees">
+			<div class="add-employee-section">						
+				<div class="two-col">
+					<div class="left">
+						<div class="row">
+							<label>Employee ID: </label><span>{{empDetails.empId}}</span>
+						</div>
+						<div class="row">
+							<label>First Name: </label><span>{{empDetails.empFirstName}}</span>
+						</div>
+						<div class="row">
+							<label>Title: </label><span>{{empDetails.tilte}}</span>
+						</div>
+						<div class="row">
+							<label>Supervisor: </label><span>{{empDetails.supervisor}}</span>
+						</div>
+						<div class="row">
+							<label>PHI Access: </label>
+							<span>{{empDetails.phiAccess}}</span>
+						</div>
+						<div class="row res_display_none">
+							<label>&nbsp;</label>
+						</div>
+					</div>
+					<div class="right">
+						<div class="row res_display_none">
+							<label>&nbsp;</label>
+						</div>
+						<div class="row">
+							<label>Last Name: </label><span>{{empDetails.empLastName}}</span>
+						</div>
+						<div class="row">
+							<label>Location: </label><span>{{empDetails.location}}</span>
+						</div>
+						<div class="row">
+							<label>Active: </label>
+							<span>{{empDetails.status}}</span>
+						</div>
+						<div class="row res_display_none">
+							<label>&nbsp;</label>
+						</div>
+						<div class="row">
+							<label>&nbsp;</label>
+							<input type="button" value="Back" ui-sref="employeeDetails" />
+						</div>
+					</div>
+				</div>						
+			</div>
+		</div>
+	</div>
+</div>

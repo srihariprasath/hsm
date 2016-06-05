@@ -1,0 +1,71 @@
+<div class="main-container">
+	<div class="tab-header">
+		<ul>
+			<li id="employees" class="active"><a href="#/employeeDetails" ui-sref="employeeDetails"><span class="icon">&nbsp;</span><span class="tab_name">Employees</span></a></li>
+			<li id="information-systems"><a href="#/infoSystems" ui-sref="infoSystems"><span class="icon">&nbsp;</span><span class="tab_name">Information Systems</span></a></li>
+			<li id="computers"><a href="#/computers" ui-sref="computers"><span class="icon">&nbsp;</span><span class="tab_name">Computers</span></a></li>
+			<li id="policies"><a href="#/policies" ui-sref="policies"><span class="icon">&nbsp;</span><span class="tab_name">Policies</span></a></li>
+		</ul>
+	</div>
+	<div class="tab-container" ng-controller="hsmEmpAddController">
+		<div class="employees">
+			<div class="add-employee-section">
+				<form name="addEmp" ng-submit="addEmployee();">
+					<div class="two-col">
+						<div class="left">
+							<div class="row" ng-class="{true: 'error'}[submitted && addEmp.empFirstName.$invalid]">
+								<label>First Name: </label>
+								<input type="text" name="empFirstName" ng-model="empFirstName" placeholder="Enter First Name" required />
+								<span class="validation-message" ng-show="submitted && addEmp.empFirstName.$error.required"><label>&nbsp;</label>Enter valid First Name.</span>
+							</div>
+							<div class="row">
+								<label>Title: </label><input type="text" ng-model="tilte" placeholder="Enter Title" />
+							</div>
+							<div class="row">
+								<label>Supervisor: </label><input type="text" ng-model="supervisor" placeholder="Enter Your Supervisor" />
+							</div>
+							<div class="row">
+								<label>PHI Access: </label>
+								<select ng-model="phiAccess">
+									<option>None</option>
+									<option>Limited</option>
+									<option>Full</option>
+								</select>
+							</div>
+							<div class="row res_display_none">
+								<label>&nbsp;</label>
+							</div>
+						</div>
+						<div class="right">
+							<div class="row" ng-class="{true: 'error'}[submitted && addEmp.empLastName.$invalid]">
+								<label>Last Name: </label>
+								<input type="text" name="empLastName" ng-model="empLastName" placeholder="Enter Last Name" required />
+								<span class="validation-message" ng-show="submitted && addEmp.empLastName.$error.required"><label>&nbsp;</label>Enter valid Last Name.</span>
+							</div>
+							<div class="row">
+								<label>Location: </label><input type="text" ng-model="location" placeholder="Enter Location" />
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && addEmp.status.$invalid]">
+								<label>Active: </label>
+								<select name="status" ng-model="status" required>
+									<option>Yes</option>
+									<option>No</option>
+								</select>
+								<span class="validation-message" ng-show="submitted && addEmp.status.$error.required"><label>&nbsp;</label>Select any option.</span>
+							</div>
+							<div class="row res_display_none">
+								<label>&nbsp;</label>
+							</div>
+							<div class="row">
+								<label class="res_display_none">&nbsp;</label>
+								<input type="button"  class="gray-button" value="Cancel" ui-sref="employeeDetails" />&nbsp;&nbsp;&nbsp;
+								<input type="submit" value="Save" ng-click="submitted=true"/>
+							</div>
+							<div id="empSearchError" class="row validation-message" ng-show="addEmployeeError">Employee Add Failed. </div>
+						</div>
+					</div>	
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

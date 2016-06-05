@@ -1,0 +1,62 @@
+<div class="main-container">
+	<div class="tab-header">
+		<ul>
+			<li id="employees"><a href="#/employeeDetails" ui-sref="employeeDetails"><span class="icon">&nbsp;</span><span class="tab_name">Employees</span></a></li>
+			<li id="information-systems"><a href="#/infoSystems" ui-sref="infoSystems"><span class="icon">&nbsp;</span><span class="tab_name">Information Systems</span></a></li>
+			<li id="computers" class="active"><a href="#/computers" ui-sref="computers"><span class="icon">&nbsp;</span><span class="tab_name">Computers</span></a></li>
+			<li id="policies"><a href="#/policies" ui-sref="policies"><span class="icon">&nbsp;</span><span class="tab_name">Policies</span></a></li>
+		</ul>
+	</div>
+	<div class="tab-container">
+		<div class="computers">
+			<div class="add-employee-section" ng-controller="hsmAstViewCntrl">
+				<div class="two-col">
+					<div class="left">
+						<div class="row">
+							<label>EMP ID: </label><span>{{astDetails.empId}}</span>
+						</div>
+						<div class="row">
+							<label>Name: </label><span>{{astDetails.assetName}}</span>
+						</div>
+						<div class="row">
+							<label>Function: </label><span>{{astDetails.function}}</span>
+						</div>
+						<div class="row">
+							<label>Location: </label><span>{{astDetails.assetLocation}}</span>
+						</div>
+						<div class="row">
+							<label>Serial Number: </label><span>{{astDetails.serialNo}}</span>
+						</div>
+						<div class="row">
+							<label>Admin Account: </label><span>{{astDetails.adminAccount}}</span>
+						</div>
+					</div>
+					<div class="right">
+						<div class="row">
+							<label>Admin Password: </label><span>{{astDetails.adminPassword}}</span>
+						</div>
+						<div class="row">
+							<label>Operating System: </label><span>{{astDetails.operatingSys}}</span>
+						</div>
+						<div class="row">
+							<label>IP Address1: </label><span>{{astDetails.ipAddress1}}</span>
+						</div>
+						<div class="row">
+							<label>IP Address2: </label><span>{{astDetails.ipAddress2}}</span>
+						</div>
+						<div class="row">
+							<label>Description: </label><span>{{astDetails.description}}</span>
+						</div>
+						<div class="row">
+							<label>Comments: </label><span>{{astDetails.comments}}</span>
+						</div>
+						<div class="row">
+							<label class="res_display_none">&nbsp;</label>
+							<input type="button" value="Back" ui-sref="computers" />
+						</div>
+					</div>
+				</div>						
+			</div>
+		</div>
+	</div>
+</div>

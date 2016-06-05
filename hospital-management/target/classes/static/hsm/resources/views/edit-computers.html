@@ -1,0 +1,82 @@
+<div class="main-container">
+	<div class="tab-header">
+		<ul>
+			<li id="employees"><a href="#/employeeDetails" ui-sref="employeeDetails"><span class="icon">&nbsp;</span><span class="tab_name">Employees</span></a></li>
+			<li id="information-systems"><a href="#/infoSystems" ui-sref="infoSystems"><span class="icon">&nbsp;</span><span class="tab_name">Information Systems</span></a></li>
+			<li id="computers" class="active"><a href="#/computers" ui-sref="computers"><span class="icon">&nbsp;</span><span class="tab_name">Computers</span></a></li>
+			<li id="policies"><a href="#/policies" ui-sref="policies"><span class="icon">&nbsp;</span><span class="tab_name">Policies</span></a></li>
+		</ul>
+	</div>
+	<div class="tab-container">
+		<div class="computers">
+			<div class="add-employee-section" ng-controller="hsmAstViewCntrl">
+				<form name="editComputers" ng-submit="editAstVal()">
+					<div class="two-col">
+						<div class="left">
+							<div class="row">
+								<label>Asset ID: </label>
+								<input type="text" ng-model="astDetails.assetkey" readonly />
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && editComputers.empId.$invalid]">
+								<label>Emp ID: </label>
+								<input type="text" name="empId" ng-model="astDetails.empId" readonly />
+								<span class="validation-message" ng-show="submitted && editComputers.empId.$error.required"><label>&nbsp;</label>Enter valid Emp ID.</span>
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && editComputers.assetName.$invalid]">
+								<label>Name: </label>
+								<input type="text" name="assetName" ng-model="astDetails.assetName" placeholder="Enter Computer Name" required />
+								<span class="validation-message" ng-show="submitted && editComputers.assetName.$error.required"><label>&nbsp;</label>Enter valid Computer Name.</span>
+							</div>
+							<div class="row">
+								<label>Function: </label><input type="text" ng-model="astDetails.function" placeholder="Enter Function Details" />
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && editComputers.assetLocation.$invalid]">
+								<label>Location: </label>
+								<input type="text" name="assetLocation" ng-model="astDetails.assetLocation" placeholder="Enter Location" required />
+								<span class="validation-message" ng-show="submitted && editComputers.assetLocation.$error.required"><label>&nbsp;</label>Enter valid location details.</span>
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && editComputers.serialNo.$invalid]">
+								<label>Serial Number: </label>
+								<input type="text" name="serialNo" ng-model="astDetails.serialNo" placeholder="Enter Serial Number" required />
+								<span class="validation-message" ng-show="submitted && editComputers.serialNo.$error.required"><label>&nbsp;</label>Enter valid Serial Number.</span>
+							</div>
+							<div class="row" ng-class="{true: 'error'}[submitted && editComputers.adminAccount.$invalid]">
+								<label>Admin Account: </label>
+								<input type="text" name="adminAccount" ng-model="astDetails.adminAccount" placeholder="Enter Admin Account" required />
+								<span class="validation-message" ng-show="submitted && editComputers.adminAccount.$error.required"><label>&nbsp;</label>Enter Admin Account Details.</span>
+							</div>
+						</div>
+						<div class="right">
+							<div class="row" ng-class="{true: 'error'}[submitted && editComputers.adminPassword.$invalid]">
+								<label>Admin Password: </label>
+								<input type="text" name="adminPassword" ng-model="astDetails.adminPassword" placeholder="Enter Admin Password" required />
+								<span class="validation-message" ng-show="submitted && editComputers.adminPassword.$error.required"><label>&nbsp;</label>Enter Admin Password Details.</span>
+							</div>
+							<div class="row">
+								<label>Operating System: </label><input type="text" ng-model="astDetails.operatingSys" placeholder="Enter Operating System" />
+							</div>
+							<div class="row">
+								<label>IP Address1: </label><input type="text" ng-model="astDetails.ipAddress1" placeholder="Enter IP Address1" />
+							</div>
+							<div class="row">
+								<label>IP Address2: </label><input type="text" ng-model="astDetails.ipAddress2" placeholder="Enter IP Address2" />
+							</div>
+							<div class="row">
+								<label>Description: </label><textarea ng-model="astDetails.description"></textarea>
+							</div>
+							<div class="row">
+								<label>Comments: </label><textarea ng-model="astDetails.comments"></textarea>
+							</div>
+							<div class="row">
+								<label class="res_display_none">&nbsp;</label>
+								<input type="button" class="gray-button" value="Cancel" ui-sref="computers" />&nbsp;&nbsp;&nbsp;
+								<input type="submit" value="Save"  ng-click="submitted=true"/>
+							</div>
+						</div>
+						<div id="empSearchError" class="row validation-message" ng-show="editAsstError">Asset Edit Failed.Please try after sometime</div>
+					</div>
+				</form>					
+			</div>
+		</div>
+	</div>
+</div>

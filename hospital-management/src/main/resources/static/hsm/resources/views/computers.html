@@ -1,0 +1,72 @@
+<div class="main-container">
+	<div class="tab-header">
+		<ul>
+			<li id="employees"><a href="#/employeeDetails" ui-sref="employeeDetails"><span class="icon">&nbsp;</span><span class="tab_name">Employees</span></a></li>
+			<li id="information-systems"><a href="#/infoSystems" ui-sref="infoSystems"><span class="icon">&nbsp;</span><span class="tab_name">Information Systems</span></a></li>
+			<li id="computers" class="active"><a href="#/computers" ui-sref="computers"><span class="icon">&nbsp;</span><span class="tab_name">Computers</span></a></li>
+			<li id="policies"><a href="#/policies" ui-sref="policies"><span class="icon">&nbsp;</span><span class="tab_name">Policies</span></a></li>
+		</ul>
+	</div>
+	<div class="tab-container">
+		<div class="computers">
+			<div class="employee-search" ng-controller="hsmAssetSearchController">
+				<form name="computerSearch" ng-submit="searchAst()">
+					<div class="search-col">
+						<label>Emp Id:</label>
+						<input type="text" ng-model="empId" ng-class="{'field-label-error':errorfield}" placeholder="Enter Emp Id">
+					</div>
+					<div class="search-col">
+						<label>Computer Name:</label>
+						<input type="text" ng-model="assetName" ng-class="{'field-label-error':errorfield}" placeholder="Enter Computer Name">
+					</div>
+					<div class="search-col">
+						<label>Operating System:</label>
+						<input type="text" ng-model="operatingSys" ng-class="{'field-label-error':errorfield}" placeholder="Enter Operating System">
+					</div>
+					<div class="search-col">
+						<label>Serial Number:</label>
+						<input type="text" ng-model="serialNo" ng-class="{'field-label-error':errorfield}" placeholder="Enter Serial Number">
+						<div class="row">
+							<label>&nbsp;</label>
+							<input type="submit" value="Search" />
+							<span ng-show='admin'><a href="#/addComputers" ui-sref="addComputers">Add New</a></span>
+						</div>
+					</div>
+					<div id="empSearchError" class="row validation-message" ng-show="errorHide">Please enter at-least any one of the above field</div>
+					<div id="empSearchError" class="row validation-message" ng-show="serviceErrorHide">Computer System Search Service issue</div>
+					<div id="empSearchError" class="row validation-message" ng-show="deleteAstHide">Delete Computer System Service issue.Please try after sometime.</div>
+				</form>	
+				<div id="search-computer" ng-controller="hsmAstViewCntrl" ng-show="showComputerSearchResults">
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Function</th>
+								<th>Location</th>
+								<th>Serial Number</th>
+								<th>Operating System</th>
+								<th>IP Address 1</th>
+								<th>IP Address 2</th>
+								<th ng-show='admin'>Edit</th>
+								<th ng-show='admin'>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="astVal in asstLstValue">
+								<td><a ng-click="viewAst(astVal.assetkey)">{{astVal.assetName}}</a></td>
+								<td>{{astVal.function}}</td>
+								<td>{{astVal.assetLocation}}</td>
+								<td>{{astVal.serialNo}}</td>
+								<td>{{astVal.operatingSys}}</td>
+								<td>{{astVal.ipAddress1}}</td>
+								<td>{{astVal.ipAddress2}}</td>
+								<td ng-show='admin'><a ng-click="editAstView(astVal.assetkey)">Edit</a></td>
+								<td ng-show='admin'><a ng-click="deleteAstVal(astVal.assetkey)">Delete</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

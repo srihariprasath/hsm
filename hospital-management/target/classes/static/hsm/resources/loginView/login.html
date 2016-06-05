@@ -1,0 +1,32 @@
+
+<head>
+    <link rel="stylesheet" href="resources/css/styles.css" />
+    <script src="../js/controllers/loginController.js"></script>
+</head>
+<div class="container">
+    <div class="header">
+        <div class="header-left"><a href="#"><img src="resources/images/logo.png" alt="Logo" title="Logo" /></a></div>
+        <div class="header-right"><a href="login.html">Login</a></div>
+    </div>
+    <div class="login-panel">
+        <div ng-controller="hsmLoginCntrl">
+            <form action="/" id="hsmLogin">
+                <div ng-validate="login_error" class="row">
+                    <label>&nbsp;</label>
+                    <div class="login-error">errror</div>
+                </div>
+                <div class="row">
+                    <label>Username: </label><input type="text" id="username" ng-model="username" placeholder="Enter Your Username" required />
+                </div>
+                <div class="row">
+                    <label>Password: </label><input type="text" id="password" ng-model="password"  placeholder="Enter Your Password" required />
+                </div>
+                <div class="row">
+                    <label>&nbsp;</label>
+                    <input type="button" ng-click="submit()" value="Login"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+´

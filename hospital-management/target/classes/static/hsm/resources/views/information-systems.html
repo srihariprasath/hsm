@@ -1,0 +1,72 @@
+<div class="main-container">
+	<div class="tab-header">
+		<ul>
+			<li id="employees"><a href="#/employeeDetails" ui-sref="employeeDetails"><span class="icon">&nbsp;</span><span class="tab_name">Employees</span></a></li>
+			<li id="information-systems" class="active"><a href="#/infoSystems" ui-sref="infoSystems"><span class="icon">&nbsp;</span><span class="tab_name">Information Systems</span></a></li>
+			<li id="computers"><a href="#/computers" ui-sref="computers"><span class="icon">&nbsp;</span><span class="tab_name">Computers</span></a></li>
+			<li id="policies"><a href="#/policies" ui-sref="policies"><span class="icon">&nbsp;</span><span class="tab_name">Policies</span></a></li>
+		</ul>
+	</div>
+	<div class="tab-container">
+		<div class="information-systems">
+			<div class="employee-search" ng-controller="hsmInfoSearchController">
+				<form name="infoSearch" ng-submit="searchInfo()">
+					<div class="search-col">
+						<label>Emp ID:</label>
+						<input type="text" ng-model="empId" ng-class="{'field-label-error':errorfield}" placeholder="Enter Employee ID">
+					</div>
+					<div class="search-col">
+						<label>System Name:</label>
+						<input type="text" ng-model="sysName" ng-class="{'field-label-error':errorfield}" placeholder="Enter System Name">
+					</div>
+					<div class="search-col">
+						<label>Administrator:</label>
+						<select ng-model="administrator" ng-class="{'field-label-error':errorfield}">
+							<option>None</option>
+							<option>Yes</option>
+							<option>No</option>
+						</select>
+					</div>
+					<div class="search-col">
+						<label>Backup Administrator:</label>
+						<input type="text" placeholder="Backup Administrator" ng-class="{'field-label-error':errorfield}" ng-model="backupAdministrator">
+						<div class="row">
+							<label>&nbsp;</label>
+							<input type="submit" value="Search" />
+							<span ng-show='admin'><a href="#/addInfoSystems" ui-sref="addInfoSystems">Add New</a></span>
+						</div>
+					</div>
+					<div id="empSearchError" class="row validation-message" ng-show="errorHide">Please enter at-least any one of the above field</div>
+					<div id="empSearchError" class="row validation-message" ng-show="serviceErrorHide">Information System Search Service issue</div>
+					<div id="empSearchError" class="row validation-message" ng-show="deleteInfoHide">Delete Information System Failed.Please try after sometime</div>
+				</form>
+				<div id="search-info-systems" ng-show="showInfoSearchResults" ng-controller="hsmInfoViewCntrl">
+					<table>
+						<thead>
+							<tr>
+								<th>System ID</th>
+								<th>System Name</th>
+								<th>Purpose</th>
+								<th>Administrator</th>
+								<th>Backup Administrator</th>
+								<th ng-show='admin'>Edit</th>
+								<th ng-show='admin'>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="infoVal in infoLstValue">
+								<td>{{infoVal.adminID}}</td>
+								<td>{{infoVal.sysName}}</td>
+								<td>{{infoVal.purposeDet}}</td>
+								<td>{{infoVal.administrator}}</td>
+								<td>{{infoVal.backupAdministrator}}</td>
+								<td ng-show='admin'><a ng-click="editInfoView(infoVal.adminID)">Edit</a></td>
+								<td ng-show='admin'><a ng-click="deleteInfo(infoVal.adminID)">Delete</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,64 @@
+<div class="main-container">
+	<div class="tab-header">
+		<ul>
+			<li id="employees" class="active"><a href="#/employeeDetails" ui-sref="employeeDetails"><span class="icon">&nbsp;</span><span class="tab_name">Employees</span></a></li>
+			<li id="information-systems"><a href="#/infoSystems" ui-sref="infoSystems"><span class="icon">&nbsp;</span><span class="tab_name">Information Systems</span></a></li>
+			<li id="computers"><a href="#/computers" ui-sref="computers"><span class="icon">&nbsp;</span><span class="tab_name">Computers</span></a></li>
+			<li id="policies"><a href="#/policies" ui-sref="policies"><span class="icon">&nbsp;</span><span class="tab_name">Policies</span></a></li>
+		</ul>
+	</div>
+	<div class="tab-container">
+		<div class="employees">
+			<div class="employee-search" ng-controller="hsmEmpSearchController">
+				<form name="employeeSearch" ng-submit="searchEmployee();">
+					<div class="search-col">
+						<label>Employee ID:</label>
+						<input type="text" ng-model="empId" ng-class="{'field-label-error':errorfield}" placeholder="Enter Employee ID">
+					</div>
+					<div class="search-col">
+						<label>First Name:</label>
+						<input type="text"  ng-model="empFirstName" ng-class="{'field-label-error':errorfield}" placeholder="Enter First Name">
+					</div>
+					<div class="search-col">
+						<label>Last Name:</label>
+						<input type="text" ng-model="empLastName" ng-class="{'field-label-error':errorfield}" placeholder="Enter Last Name">
+					</div>
+					<div class="search-col">
+						<label>&nbsp;</label>
+						<input type="submit" value="Search" />
+						<span ng-show='admin'><a href="javascript:;" ui-sref="addEmployee">Add Employee</a></span>
+					</div>
+					<div id="empSearchError" class="row validation-message" ng-show="errorHide">Please enter at-least any one of the above field</div>
+					<div id="empSearchError" class="row validation-message" ng-show="serviceErrorHide">Employee Search Service issue</div>
+					<div id="empSearchError" class="row validation-message" ng-show="deleteEmployeeHide">Employee Delete Failed.Delete the dependent records and try </div>
+				</form>
+				<div class="search-table" ng-controller="hsmEmpViewCntrl" ng-show="showEmpSearchResults">
+					<table id="employee-search-list">
+						<thead>
+							<th>Employee ID</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Title</th>
+							<th>Location</th>
+							<th>Active</th>
+							<th ng-show='admin'>Edit</th>
+							<th ng-show='admin'>Delete</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="empVal in empLstValue">
+								<td><a ng-click="viewEmployee(empVal.empId)">{{empVal.empId}}</a></td>
+								<td>{{empVal.empFirstName}}</td>
+								<td>{{empVal.empLastName}}</td>
+								<td>{{empVal.tilte}}</td>
+								<td>{{empVal.location}}</td>
+								<td>{{empVal.status}}</td>
+								<td ng-show='admin'><a ng-click="editEmployeeView(empVal.empId)">Edit</a></td>
+								<td ng-show='admin'><a ng-click="deleteEmployee(empVal.empId)">Delete</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

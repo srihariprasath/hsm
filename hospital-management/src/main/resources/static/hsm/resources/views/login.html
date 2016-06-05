@@ -1,0 +1,19 @@
+<div class="login-panel" ng-controller="hsmLoginCntrl">
+	<form name="loginForm" id="hsmLogin" ng-submit="submit(loginForm.$valid)">
+		<div class="row" ng-class="{true: 'error'}[submitted && loginForm.username.$invalid]">
+			<label>Username: </label>
+			<input type="text" name="username" ng-model="username" ng-class="{'field-label-error':errorfield}" id="username" placeholder="Enter Your Username" required />
+			<label></label><span class="validation-message" ng-show="submitted && loginForm.username.$error.required">Enter valid Username.</span>
+		</div>
+		<div class="row" ng-class="{true: 'error'}[submitted && loginForm.password.$invalid]">
+			<label>Password: </label>
+			<input type="password" name="password" ng-model="password" ng-class="{'field-label-error':errorfield}" id="pasword" placeholder="Enter Your Password" required />
+			<label></label><span class="validation-message" ng-show="submitted && loginForm.password.$error.required">Enter valid Password.</span>
+		</div>
+		<div class="row">
+			<label>&nbsp;</label>
+			<input type="submit" ng-click="submitted=true" value="Login"/>
+		</div>
+		<div id="empSearchError" class="row validation-message" ng-show="loginErrorFlag">Login Failure.Please check the user name and password.
+	</form>
+</div>
